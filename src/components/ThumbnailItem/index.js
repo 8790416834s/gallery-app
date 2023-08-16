@@ -1,23 +1,31 @@
 import './index.css'
 
 const ThumbnailItem = props => {
-  const {imagesList, imageChange, key} = props
+  const {imagesDetail, imageChange, clicked} = props
+  const {id, thumbnailAltText, thumbnailUrl} = imagesDetail
+
+  const isClicked = clicked ? 'clickedBtn' : ''
 
   const onImage = () => {
-    imageChange(key)
+    imageChange(id)
   }
 
   return (
-    <div>
-      {imagesList.map(each => (
-        <img
-          src={each.thumbnailUrl}
-          alt={each.thumbnailAltText}
-          className="thumbnail-img"
+    <li className="item-container">
+      <div className="list-item">
+        <button
+          type="button"
           onClick={onImage}
-        />
-      ))}
-    </div>
+          className={`button${isClicked}`}
+        >
+          <img
+            src={thumbnailUrl}
+            alt={thumbnailAltText}
+            className="thumbnail-img"
+          />
+        </button>
+      </div>
+    </li>
   )
 }
 

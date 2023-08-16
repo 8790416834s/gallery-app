@@ -1,1 +1,25 @@
-/* Write your code here. */
+.item-container {
+  display: flex;
+}
+.list-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.button {
+  margin: 10px;
+  background-color: transparent;
+  border-width: 0px;
+  cursor: pointer;
+  outline: none;
+  opacity: 0.5;
+}
+
+.clickedBtn {
+  margin: 10px;
+  background-color: transparent;
+  border-width: 0px;
+  cursor: pointer;
+  outline: none;
+  opacity: 1;
+}

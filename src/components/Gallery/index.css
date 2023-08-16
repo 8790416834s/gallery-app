@@ -1,1 +1,14 @@
-/* Write your code here. */
+.container {
+  margin: 50px;
+}
+.image {
+  height: 250px;
+  width: 80%;
+  text-align: center;
+}
+.list-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-left: 0px;
+}

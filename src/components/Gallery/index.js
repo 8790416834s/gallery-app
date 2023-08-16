@@ -75,20 +75,37 @@ const imagesList = [
 
 // Write your code here.
 class Gallery extends Component {
-  imageChange = key => {
-    console.log(`key value -${key}`)
+  state = {identity: imagesList[0], clicked: false}
+
+  imageChange = id => {
+    const changedImage = imagesList.find(each => each.id === id)
+    this.setState(prevState => ({
+      identity: changedImage,
+      clicked: !prevState.clicked,
+    }))
   }
 
   render() {
+    const {identity, clicked} = this.state
     return (
       <div className="container">
+        <img
+          src={identity.imageUrl}
+          alt={identity.imageAltText}
+          className="image"
+        />
         <h1>Nature Photography</h1>
         <p>Nature Photography by Rahul</p>
-        <ThumbnailItem
-          imageChange={this.imageChange}
-          imagesList={imagesList}
-          key={imagesList.id}
-        />
+        <ul className="list-container">
+          {imagesList.map(each => (
+            <ThumbnailItem
+              imageChange={this.imageChange}
+              imagesDetail={each}
+              key={each.id}
+              clicked={clicked}
+            />
+          ))}
+        </ul>
       </div>
     )
   }
